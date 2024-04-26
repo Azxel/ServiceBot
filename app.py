@@ -4,11 +4,11 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 # informacion del bot
-token = '6539036957:AAF5jJF6gOp8enFDdZOwUryD1l0C6tQOZ8g'
-username = 'chat_rd_t_bot'
+token = ''
+username = ''
 
 # informacion de la api
-api_key = 'AIzaSyAjVk7sAULPEExMKXd-0IllLGjsnDpFl94'
+api_key = ''
 
 # configuracion 
 genai.configure(api_key=api_key)
@@ -24,6 +24,7 @@ async def help(update: Update, context: ContextTypes):
 def handle_response(text: str, context: ContextTypes, update: Update):
     proccesed_text = text.lower()
     print("Procesando")
+    print(proccesed_text)
     response = model.generate_content([proccesed_text])
     print("Fin del Proceso")
     return response.text
